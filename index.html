@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplos</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div>
+        <h1>Exemplos do Java Script</h1>
+
+        <section>
+            <h2 class="title2">Exemplos para Var, Let e Const</h2>
+            <p class="title3">Para responder as perguntas coloque sua idade: </p>
+            <input type="text" id="nome" name="nome">
+            <h4>Perguntas para Programadores:</h4>
+            <p>Qual é a linguagem de programação que foi criada por Guido van Rossum?</p>
+            <select id="setor">
+                <option value="">Selecione</option>
+                <option value="python">Python</option>
+                <option value="java">Java</option>
+                <option value="ruby">Ruby</option>
+            </select>
+            <p>Quantas vezes você programou em Python hoje?</p>
+            <input type="number" id="numero" name="numero">
+        </section>
+
+        <button type="submit">Finalizar</button>
+    </div>
+    <!--Aqui está o Java Script-->
+    <script>
+
+
+            var nome = document.getElementById("nome").value.trim(); 
+            const setor = document.getElementById("setor").value;
+            let numero = document.getElementById("numero").value.trim();
+         
+        if (numero < 5){
+            mensagem.textContent = "Meu Deus, você usou muito pouco Python.";
+        }
+    </script>
+</body>
+</html>
