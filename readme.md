@@ -44,14 +44,14 @@ visibilidade de variáveis declaradas dentro de pares de chaves {} como usados e
 ## Operadores, comparações e lógica
 
 ### Operadores aritméticos principais:
-+ → soma (ou junta textos)
-- → subtração
-* → multiplicação
-/ → divisão
-% → resto da divisão
-** → potência (elevar número)
-++ → aumenta 1
--- → diminui 1
++ + → soma (ou junta textos)
++ - → subtração
++ * → multiplicação
++ / → divisão
++ % → resto da divisão
++ ** → potência (elevar número)
++ ++ → aumenta 1
++ -- → diminui 1
 
 ### Operadores relacionais principais:
 == → igual 
