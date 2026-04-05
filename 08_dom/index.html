@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="pt-br">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -9,10 +9,10 @@
   <body>
     <header>
       <h1 class="title">08_DOM</h1>
-      <h2 id="exemplo">Texto atual</h2>
-
+      <h2 class="dupla" id="exemplo">Gustavo e Nicole</h2>
       <button onclick="mudaTexto()">Clique aqui</button>
     </header>
+
     <section>
       <h4>Qual meu nome do meio?</h4>
       <select id="selecao">
@@ -21,50 +21,72 @@
         <option value="henrique">Henrique</option>
         <option value="rapouso">Rapouso</option>
       </select>
-      <p id="mensagem"></p>
+      <p id="mensagem_selecao"></p>
     </section>
 
-    <input type="checkbox" id="termo" />Confirme aqui se o Gustavo é lindo.
-    <p id="mensagem"></p>
+    <section>
+      <input type="checkbox" id="termo" />Confirme aqui se o Gustavo é lindo.
+      <br>
+      <br>
+      <button id="submit">Concluir</button>
+      <p id="mensagem_fim"></p>
+    </section>
 
-    <button type="submit">Concluir</button>
-    <p id="mensagem"></p>
+    <section>
+      <h3>Liste adjetivos de Gustavo:</h3>
+      <input type="text" id="adjetivos">
+      <ul id="listaAdjetivos"></ul>
+    </section>
 
     <script>
-      let texto = document.getElementById("exemplo");
+      const texto1 = document.getElementById("exemplo");
+      const termos = document.getElementById("termo");
+      const selecao = document.getElementById("selecao");
+      const mensagem_selecao = document.getElementById("mensagem_selecao");
+      const mensagem_fim = document.getElementById("mensagem_fim");
+      const submit_botao = document.getElementById("submit");
+      const adjetivosGustavo = document.querySelector("#adjetivos");
+      const lista = document.getElementById("listaAdjetivos");
 
-      const termos = document.getElementById("termo").checked;
-
-        addEventListener("submit", function (event) {
-            event.preventDefault();
-            function mudaTexto() {
-                texto.textContent = "Outro texto";
-            }
-
-            let selecao = document.getElementById("selecao");
-            let mensagem = document.getElementById("mensagem");
-
-            selecao.addEventListener("change", function (event) {
-                if (selecao == "gustavo") {
-                mensagem.textContent = "Esse é meu primeiro nome.";
-                return;
-                }
-
-                if (selecao == "rapouso") {
-                mensagem.textContent = "Esse é meu último nome.";
-                return;
-                }
-
-                if (selecao == "henrique") {
-                mensagem.textContent = "Acertou.";
-                return;
-                }
-            });
-        });
-
-      if (!termos) {
-        mensagem.textContent = "Você precisa colocar que o Gustavo é lindo.";
+      function mudaTexto() {
+        texto1.textContent = "Nicole e Gustavo";
       }
+
+      selecao.addEventListener("change", function () {
+        const valor = selecao.value;
+
+        if (valor === "gustavo") {
+          mensagem_selecao.textContent = "Esse é meu primeiro nome.";
+        } else if (valor === "rapouso") {
+          mensagem_selecao.textContent = "Esse é meu último nome.";
+        } else if (valor === "henrique") {
+          mensagem_selecao.textContent = "Acertou.";
+        } else {
+          mensagem_selecao.textContent = "";
+        }
+      });
+
+      submit_botao.addEventListener("click", function () {
+        if (termos.checked) {
+          mensagem_fim.textContent = "Obrigado por reconhecer a beleza do Gustavo!";
+          mensagem_fim.style.color = "green";
+        } else {
+          mensagem_fim.textContent = "Você precisa admitir que o Gustavo é lindo para concluir.";
+          mensagem_fim.style.color = "red";
+        }
+      });
+
+      adjetivosGustavo.addEventListener("keypress", function(event){
+        
+        if(event.key === "Enter"){
+          const newAdjetivo = document.createElement("li");
+          newAdjetivo.textContent = adjetivosGustavo.value;
+          newAdjetivo.classList.add("item-lista");
+          lista.appendChild(newAdjetivo);
+          adjetivosGustavo.value = "";
+        }
+        
+      });
     </script>
   </body>
 </html>
